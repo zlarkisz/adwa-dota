@@ -13,19 +13,19 @@ const players = [
     name: "Глеб",
     description:
       "Фронтенд тимлид. Саппорт команды в Дота 2. Любит шахматы. По утрам делает йогу. Характер терпеливый. Женат.",
-    image: "/images/team/gleb.jpg",
+    image: "/images/team/gleb.JPG",
   },
   {
     name: "Виталиус",
     description:
       "Frontend (Миньон Валеры). Любит вино, пиво и салат. Характер как у твоего лучшего друга. Женат.",
-    image: "/images/team/vitalik.jpg",
+    image: "/images/team/vitalik.JPG",
   },
   {
     name: "Вова",
     description:
       "Казино менеджер. Любит риск и красивые цифры на балансе. Умеет ставить олл-ин - и в казино, и в Доте. Характер хладнокровный. Не женат.",
-    image: "/images/team/vlad.jpg",
+    image: "/images/team/vlad.JPG",
     imageObjectPosition: "object-[50%_55%] md:object-bottom",
   },
   {
