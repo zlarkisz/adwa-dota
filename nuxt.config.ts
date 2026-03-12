@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: "ru" },
-      title: "Fantastic 5 — Dota 2 Team",
+      title: "Fantastic 5 — Adwa Dota 2 Team",
       meta: [
         {
           name: "description",
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
             "Команда Fantastic 5 — профессионалы казино индустрии, которые завоюют Dota 2 турнир.",
         },
         { name: "keywords", content: "Fantastic 5, Dota 2, команда, турнир" },
-        { property: "og:title", content: "Fantastic 5 — Dota 2 Team" },
+        { property: "og:title", content: "Fantastic 5 — Adwa Dota 2 Team" },
         {
           property: "og:description",
           content:
@@ -25,7 +25,7 @@ export default defineNuxtConfig({
         { property: "og:image", content: "/images/f5-rect.jpg" },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Fantastic 5 — Dota 2 Team" },
+        { name: "twitter:title", content: "Fantastic 5 — Adwa Dota 2 Team" },
         { name: "twitter:image", content: "/images/f5-rect.jpg" },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
