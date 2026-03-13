@@ -7,6 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 const section = useTemplateRef("section");
 const card = useTemplateRef("card");
 const shadow = useTemplateRef("shadow");
+const glow = useTemplateRef("glow");
+const slogan = useTemplateRef("slogan");
 
 let ctx;
 
@@ -22,6 +24,27 @@ function startLevitation() {
   gsap.to(shadow.value, {
     scale: 1.15,
     opacity: 0.4,
+    duration: 3,
+    ease: "sine.inOut",
+    yoyo: true,
+    repeat: -1,
+  });
+
+  gsap.set(".slogan p", { opacity: 0, y: 30 });
+
+  gsap.to(".slogan p", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    stagger: 0.3,
+    delay: 0.5,
+  });
+
+  gsap.to(glow.value, {
+    opacity: 0.6,
+    background:
+      "radial-gradient(ellipse, rgba(192,192,192,0.4) 0%, transparent 70%)",
     duration: 3,
     ease: "sine.inOut",
     yoyo: true,
@@ -67,6 +90,10 @@ onUnmounted(() => {
           alt="Fantastic 5 team poster"
           class="block w-full"
         />
+        <div
+          ref="glow"
+          class="absolute -inset-4 -z-10 rounded-2xl opacity-0 blur-3xl"
+        ></div>
       </div>
 
       <!-- Shadow -->
@@ -74,6 +101,20 @@ onUnmounted(() => {
         ref="shadow"
         class="mt-8 h-4 w-48 rounded-full bg-white/10 blur-xl md:w-64"
       ></div>
+
+      <!-- Slogan -->
+      <div ref="slogan" class="slogan mt-6 text-center">
+        <p
+          class="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#C0C0C0] tracking-[0.2em] sm:tracking-widest"
+        >
+          F5 НА СЕРВЕР ЗАШЛИ —
+        </p>
+        <p
+          class="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#C0C0C0]/50 tracking-[0.2em] sm:tracking-widest"
+        >
+          СОПЕРНИКИ ДОМОЙ УШЛИ.
+        </p>
+      </div>
     </div>
   </section>
 </template>
