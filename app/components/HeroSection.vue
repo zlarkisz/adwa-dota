@@ -12,6 +12,29 @@ let ctx;
 const lever = useTemplateRef("lever");
 const spinning = ref(false);
 
+let audioCtx = null;
+let audioBuffer = null;
+
+async function preloadSound() {
+  try {
+    const response = await fetch("/sounds/slot-machine-spinning.wav");
+    const arrayBuffer = await response.arrayBuffer();
+    audioCtx = new AudioContext();
+    audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+  } catch {}
+}
+
+function playSound() {
+  if (!audioCtx || !audioBuffer) return;
+  try {
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    const source = audioCtx.createBufferSource();
+    source.buffer = audioBuffer;
+    source.connect(audioCtx.destination);
+    source.start(0, 0, 4);
+  } catch {}
+}
+
 function startSpin() {
   if (spinning.value) return;
   spinning.value = true;
@@ -42,7 +65,7 @@ function startSpin() {
 
     tl.tweenTo(tl.duration(), {
       duration: TOTAL_DURATION,
-      ease: "power4.inOut",
+      ease: "power3.out",
       onComplete: () => {
         spinning.value = false;
       },
@@ -60,6 +83,7 @@ function pullLever() {
     transformOrigin: "bottom center",
     onComplete: () => {
       startSpin();
+      playSound();
       gsap.to(lever.value, {
         rotation: 0,
         duration: 0.5,
@@ -71,6 +95,7 @@ function pullLever() {
 
 async function initAnimation() {
   await document.fonts.ready;
+  preloadSound();
 
   gsap.to(container.value, { opacity: 1, duration: 0.5 });
   startSpin();
