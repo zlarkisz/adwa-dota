@@ -4,9 +4,9 @@ import gsap from "gsap";
 const chars = "FANTASTIC 5".split("");
 const container = useTemplateRef("container");
 
-const REPEAT_COUNT = 8;
+const REPEAT_COUNT = 9;
 const ROLL_DURATION = 0.5;
-const TOTAL_DURATION = 4;
+const TOTAL_DURATION = 4.5;
 
 let ctx;
 const lever = useTemplateRef("lever");
